@@ -397,7 +397,7 @@
                 </div>
             </div>
         </section>
-
+        
         <!-- Footer -->
         <footer class="bg-gray-900 text-white py-12">
             <div class="max-w-7xl mx-auto px-6 text-center">
@@ -428,21 +428,24 @@
         });
 
         // Mobile menu
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn?.addEventListener('click', () => {
+        menu?.classList.toggle('hidden');
         });
 
         // Smooth scroll & back to top
-        window.addEventListener('scroll', () => {
-            const backToTop = document.querySelector('#back-to-top');
-            if (window.scrollY > 300) {
-                backToTop.classList.remove('opacity-0', 'invisible');
-                backToTop.classList.add('opacity-100', 'visible');
-            } else {
-                backToTop.classList.remove('opacity-100', 'visible');
-                backToTop.classList.add('opacity-0', 'invisible');
-            }
-        });
+        // window.addEventListener('scroll', () => {
+        //     const backToTop = document.querySelector('#back-to-top');
+        //     if (window.scrollY > 300) {
+        //         backToTop.classList.remove('opacity-0', 'invisible');
+        //         backToTop.classList.add('opacity-100', 'visible');
+        //     } else {
+        //         backToTop.classList.remove('opacity-100', 'visible');
+        //         backToTop.classList.add('opacity-0', 'invisible');
+        //     }
+        // });
 
         function logout() {
             if (confirm('Logout from dashboard?')) {
