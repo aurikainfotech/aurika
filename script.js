@@ -17,14 +17,7 @@ document.querySelectorAll('a[href^=\"#\"]')?.forEach(anchor => {
     });
 });
 
-// SUPABASE CONFIG
-const SUPABASE_URL = 'https://pgjgkdkqliighrqgjfcu.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_LRLBevR4arun-JHgao8Rjg_sOhDwwXj';
 
-const supabase = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_ANON_KEY
-);
 
 function setupAuthListener() {
     supabase.auth.onAuthStateChange((event, session) => {
