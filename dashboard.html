@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Dashboard - Aurika Infotech</title>
+    <link rel="icon" href="logo.jpeg" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideInUp 0.8s ease forwards;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 0 4px white;
+            animation: pulse 2s infinite;
+        }
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+        .timeline-content {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 4px solid #3b82f6;
+            position: relative;
+        }
+        .timeline-item:nth-child(even) .timeline-content {
+            border-left: none;
+            border-right: 4px solid #3b82f6;
+            margin-left: 20px;
+        }
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 20px;
+        }
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(59,130,246,0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(59,130,246,0); }
+            100% { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
+        }
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid #f1f5f9;
+        }
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+        .course-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .timeline-line { left: 20px; }
+            .timeline-item { width: 100%; left: 0 !important; text-align: left !important; padding-left: 60px; }
+            .timeline-item::before { left: 20px !important; }
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <img src="logo.jpeg" alt="Aurika Infotech Logo" class="h-12 w-12 rounded-full shadow-lg">
+                    <span class="ml-3 text-2xl font-bold text-blue-600 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Aurika</span>
+                </div>
+                <div class="hidden md:flex items-baseline space-x-8">
+                    <a href="index.html" class="nav-link px-4 py-2 font-semibold text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="internship-domains.html" class="nav-link px-4 py-2 font-semibold text-gray-700 hover:text-blue-600 transition-colors">Domains</a>
+                    <a href="#" onclick="logout()" class="px-6 py-2 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-all shadow-md">Logout</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 rounded-lg">Home</a>
+                <a href="internship-domains.html" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 rounded-lg">Domains</a>
+                <a href="#" onclick="logout()" class="block px-4 py-3 bg-red-500 text-white font-semibold rounded-lg text-center">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-28 pb-16">
+        <!-- Hero Header -->
+        <div class="max-w-6xl mx-auto px-6 text-center mb-24">
+            <div class="inline-block bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-8 py-6 rounded-3xl shadow-2xl mb-8">
+                <i class="fas fa-rocket text-4xl mb-4 block"></i>
+                <h1 class="text-5xl lg:text-6xl font-black mb-6 leading-tight">Your Internship Dashboard</h1>
+                <p class="text-xl text-blue-100 max-w-2xl mx-auto">Track your progress, access learning materials, and complete your internship journey with confidence</p>
+            </div>
+        </div>
+
+        <!-- Animated Snake Timeline -->
+        <section class="max-w-6xl mx-auto px-6 mb-24">
+            <h2 class="text-4xl font-black text-center mb-20 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">Your Internship Journey</h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <!-- Step 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-green-500 text-white rounded-2xl flex items-center justify-center font-black text-2xl shadow-2xl mr-6">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-black text-gray-800 mb-2">Apply & Pay</h3>
+                                <div class="text-sm font-semibold bg-green-100 text-green-800 px-4 py-1 rounded-full inline-block">Step 1 ✓</div>
+                            </div>
+                        </div>
+                        <p class="text-xl text-gray-700 leading-relaxed">Select your domain and complete payment to secure your internship spot</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-blue-500 text-white rounded-2xl flex items-center justify-center font-black text-2xl shadow-2xl mr-6">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-black text-gray-800 mb-2">Offer Letter</h3>
+                                <div class="text-sm font-semibold bg-blue-100 text-blue-800 px-4 py-1 rounded-full inline-block">Step 2 ✓</div>
+                            </div>
+                        </div>
+                        <p class="text-xl text-gray-700 leading-relaxed">Official offer letter delivered - you're officially an Aurika intern!</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-yellow-500 text-white rounded-2xl flex items-center justify-center font-black text-2xl shadow-2xl mr-6">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-black text-gray-800 mb-2">Start Learning</h3>
+                                <div class="text-sm font-semibold bg-yellow-100 text-yellow-800 px-4 py-1 rounded-full inline-block">Step 3 ⏳</div>
+                            </div>
+                        </div>
+                        <p class="text-xl text-gray-700 leading-relaxed">Access structured modules, videos, and hands-on projects</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-purple-500 text-white rounded-2xl flex items-center justify-center font-black text-2xl shadow-2xl mr-6">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-black text-gray-800 mb-2">Build Projects</h3>
+                                <div class="text-sm font-semibold bg-purple-100 text-purple-800 px-4 py-1 rounded-full inline-block">Step 4 ⏳</div>
+                            </div>
+                        </div>
+                        <p class="text-xl text-gray-700 leading-relaxed">Create portfolio-ready projects with expert guidance</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-emerald-500 text-white rounded-2xl flex items-center justify-center font-black text-2xl shadow-2xl mr-6">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-black text-gray-800 mb-2">Get Certified</h3>
+                                <div class="text-sm font-semibold bg-emerald-100 text-emerald-800 px-4 py-1 rounded-full inline-block">Step 5 ⏳</div>
+                            </div>
+                        </div>
+                        <p class="text-xl text-gray-700 leading-relaxed">Earn official certificate + LinkedIn badge</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Access Cards - Fixed Layout -->
+        <section class="max-w-7xl mx-auto px-6 pb-24">
+            <h2 class="text-4xl font-black text-center mb-16 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">Course Materials</h2>
+            <div class="course-grid">
+                <!-- MERN Card -->
+                <div class="course-card">
+                    <div class="course-icon bg-gradient-to-br from-blue-500 to-blue-600">
+                        <i class="fas fa-database text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">MERN Stack</h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">MongoDB, Express, React, Node.js</p>
+                    </div>
+                    <a href="https://drive.google.com/drive/folders/1ABC..." target="_blank" class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-8 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                        <i class="fas fa-external-link-alt mr-2"></i>Access Materials
+                    </a>
+                </div>
+
+                <!-- Full Stack Card -->
+                <div class="course-card">
+                    <div class="course-icon bg-gradient-to-br from-emerald-500 to-emerald-600">
+                        <i class="fas fa-layer-group text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Full Stack</h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">HTML/CSS/JS + React + Backend</p>
+                    </div>
+                    <a href="https://drive.google.com/drive/folders/1DEF..." target="_blank" class="bg-gradient-to-r from-emerald-600 to-green-600 text-white py-3 px-8 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                        <i class="fas fa-external-link-alt mr-2"></i>Access Materials
+                    </a>
+                </div>
+
+                <!-- Python Card -->
+                <div class="course-card">
+                    <div class="course-icon bg-gradient-to-br from-orange-500 to-orange-600">
+                        <i class="fab fa-python text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Python</h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">Core Python, Automation & Scripts</p>
+                    </div>
+                    <a href="https://drive.google.com/drive/folders/1GHI..." target="_blank" class="bg-gradient-to-r from-orange-600 to-yellow-500 text-white py-3 px-8 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                        <i class="fas fa-external-link-alt mr-2"></i>Access Materials
+                    </a>
+                </div>
+
+                <!-- Java Card -->
+                <div class="course-card">
+                    <div class="course-icon bg-gradient-to-br from-purple-500 to-purple-600">
+                        <i class="fab fa-java text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Java</h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">OOP, Backend & Projects</p>
+                    </div>
+                    <a href="https://drive.google.com/drive/folders/1JKL..." target="_blank" class="bg-gradient-to-r from-purple-600 to-violet-600 text-white py-3 px-8 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                        <i class="fas fa-external-link-alt mr-2"></i>Access Materials
+                    </a>
+                </div>
+
+                <!-- Data Analyst Card -->
+                <div class="course-card">
+                    <div class="course-icon bg-gradient-to-br from-teal-500 to-teal-600">
+                        <i class="fas fa-chart-bar text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Data Analyst</h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">Excel, SQL, Python Analysis</p>
+                    </div>
+                    <a href="https://drive.google.com/drive/folders/1MNO..." target="_blank" class="bg-gradient-to-r from-teal-600 to-cyan-600 text-white py-3 px-8 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                        <i class="fas fa-external-link-alt mr-2"></i>Access Materials
+                    </a>
+                </div>
+
+                <!-- UI/UX Card -->
+                <div class="course-card">
+                    <div class="course-icon bg-gradient-to-br from-pink-500 to-pink-600">
+                        <i class="fas fa-paint-brush text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">UI/UX Design</h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">Figma, Wireframing, Design</p>
+                    </div>
+                    <a href="https://drive.google.com/drive/folders/1PQR..." target="_blank" class="bg-gradient-to-r from-pink-600 to-rose-600 text-white py-3 px-8 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                        <i class="fas fa-external-link-alt mr-2"></i>Access Materials
+                    </a>
+                </div>
+
+                <!-- DevOps Card -->
+                <div class="course-card">
+                    <div class="course-icon bg-gradient-to-br from-gray-600 to-gray-800">
+                        <i class="fas fa-cogs text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">DevOps</h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">CI/CD, Docker, Deployment</p>
+                    </div>
+                    <a href="https://drive.google.com/drive/folders/1STU..." target="_blank" class="bg-gradient-to-r from-gray-800 to-slate-800 text-white py-3 px-8 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                        <i class="fas fa-external-link-alt mr-2"></i>Access Materials
+                    </a>
+                </div>
+
+                <!-- AWS Card -->
+                <div class="course-card">
+                    <div class="course-icon bg-gradient-to-br from-orange-500 to-orange-600">
+                        <i class="fas fa-cloud text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">AWS Cloud</h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">EC2, S3, VPC, Lambda</p>
+                    </div>
+                    <a href="https://drive.google.com/drive/folders/1VWX..." target="_blank" class="bg-gradient-to-r from-orange-600 to-amber-600 text-white py-3 px-8 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+                        <i class="fas fa-external-link-alt mr-2"></i>Access Materials
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-20">
+            <div class="max-w-4xl mx-auto text-center px-6">
+                <h2 class="text-5xl font-black mb-8">Ready to Excel?</h2>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+                    <div class="bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl">
+                        <i class="fas fa-graduation-cap text-5xl mb-6 block mx-auto"></i>
+                        <h3 class="text-2xl font-bold mb-4">Structured Learning</h3>
+                        <p class="text-lg opacity-90">Complete curriculum with projects & mentor support</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl">
+                        <i class="fas fa-certificate text-5xl mb-6 block mx-auto"></i>
+                        <h3 class="text-2xl font-bold mb-4">Industry Certificate</h3>
+                        <p class="text-lg opacity-90">Official certificate + portfolio-ready projects</p>
+                    </div>
+                </div>
+                <div class="space-x-4">
+                    <a href="internship-domains.html" class="inline-flex items-center px-12 py-6 bg-white text-blue-600 font-black text-xl rounded-3xl shadow-2xl hover:shadow-3xl hover:-translate-y-2 transition-all duration-300">
+                        <i class="fas fa-play-circle mr-3 text-2xl"></i>Explore Courses
+                    </a>
+                    <a href="index.html" class="inline-flex items-center px-12 py-6 bg-white/20 backdrop-blur-xl text-white font-semibold text-xl rounded-3xl hover:bg-white/30 transition-all duration-300">
+                        <i class="fas fa-home mr-3"></i>Back to Home
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-12">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <p>&copy; 2025 Aurika Infotech. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Animate timeline on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('animate-slideInUp');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scroll & back to top
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('#back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.remove('opacity-100', 'visible');
+                backToTop.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        function logout() {
+            if (confirm('Logout from dashboard?')) {
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>

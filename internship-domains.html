@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Domains - Aurika Infotech</title>
+    <link rel="icon" href="logo.jpeg" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <img src="logo.jpeg" alt="Aurika Infotech Logo" class="h-10 w-10 rounded-full">
+                    <span class="ml-2 text-xl font-bold text-blue-600">Aurika Infotech</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6">
+                        <a href="index.html" class="nav-link px-3 py-2 font-medium text-gray-700 hover:text-blue-600">Home</a>
+                        <a href="#domains" class="nav-link px-3 py-2 font-medium text-gray-700 hover:text-blue-600">Domains</a>
+                        <a href="dashboard.html" class="nav-link px-3 py-2 font-medium text-gray-700 hover:text-blue-600">Dashboard</a>
+                    </div>
+                </div>
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-purple-600 focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100">Home</a>
+                <a href="#domains" class="block px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100">Domains</a>
+                <a href="index.html#contact" class="block px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100">Apply</a>
+                <a href="dashboard.html" class="block px-3 py-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="pt-32 pb-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Title -->
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Internship Domains</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Choose from our specialized internship programs and kickstart your tech career</p>
+            </div>
+            
+            <!-- Domains Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8" id="domains">
+                <!-- Full Stack Development -->
+                <div class="domain-card bg-gradient-to-br from-blue-50 to-indigo-100 p-6 lg:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 border-blue-500">
+                    <div class="w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-2xl flex items-center justify-center mb-4 lg:mb-6 shadow-lg mx-auto">
+                        <i class="fas fa-layer-group text-blue-600 text-xl lg:text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-bold text-gray-800 mb-3 lg:mb-4 text-center">Full Stack Development</h3>
+                    <p class="text-sm lg:text-base text-gray-700 mb-4 lg:mb-6 text-center leading-relaxed">HTML, CSS, JavaScript, React, Node.js, MongoDB</p>
+                    <div class="text-center mb-4">
+                        <div class="text-2xl font-bold text-green-600 mx-auto mb-2">₹499 <p class="text-sm text-gray-600 line-through">₹899</p></div>
+                    </div>
+                <a href="courses/fullstack.html"
+                class="apply-btn block w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-xl text-center hover:bg-blue-700 transition duration-300 shadow-lg">
+                Apply Now
+                </a>
+                </div>
+
+                <!-- Data Analyst -->
+                <div class="domain-card bg-gradient-to-br from-teal-50 to-cyan-100 p-6 lg:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 border-teal-500">
+                    <div class="w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-2xl flex items-center justify-center mb-4 lg:mb-6 shadow-lg mx-auto">
+                        <i class="fas fa-chart-bar text-teal-600 text-xl lg:text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-bold text-gray-800 mb-3 lg:mb-4 text-center">Data Analyst</h3>
+                    <p class="text-sm lg:text-base text-gray-700 mb-4 lg:mb-6 text-center leading-relaxed">Excel, SQL, Python, basic data visualization</p>
+                    <div class="text-center mb-4">
+                        <div class="text-2xl font-bold text-green-600 mx-auto mb-2">₹559 <p class="text-sm text-gray-600 line-through">₹999</p></div>
+                    </div>
+                    <a href="courses/data-analyst.html" class="apply-btn block w-full bg-teal-600 text-white font-bold py-3 px-6 rounded-xl text-center hover:bg-teal-700 transition duration-300 shadow-lg mt-6">Apply Now</a>
+                </div>
+
+                <!-- UI/UX Design --> 
+                <div class="domain-card bg-gradient-to-br from-pink-50 to-rose-100 p-6 lg:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 border-pink-500">
+                    <div class="w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-2xl flex items-center justify-center mb-4 lg:mb-6 shadow-lg mx-auto">
+                        <i class="fas fa-paint-brush text-pink-600 text-xl lg:text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-bold text-gray-800 mb-3 lg:mb-4 text-center">UI/UX Design</h3>
+                    <p class="text-sm lg:text-base text-gray-700 mb-4 lg:mb-6 text-center leading-relaxed">Figma, design principles, wireframing, real design tasks</p>
+                    <div class="text-center mb-4">
+                        <div class="text-2xl font-bold text-green-600 mx-auto mb-2">₹499 <p class="text-sm text-gray-600 line-through">₹899</p></div>
+                    </div>
+                    <a href="courses/ui-ux.html" class="apply-btn block w-full bg-pink-600 text-white font-bold py-3 px-6 rounded-xl text-center hover:bg-pink-700 transition duration-300 shadow-lg mt-6">Apply Now</a>
+                </div>
+
+                <!-- DevOps --> 
+                <div class="domain-card bg-gradient-to-br from-gray-50 to-gray-100 p-6 lg:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 border-gray-600">
+                    <div class="w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-2xl flex items-center justify-center mb-4 lg:mb-6 shadow-lg mx-auto">
+                        <i class="fas fa-cogs text-gray-600 text-xl lg:text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-bold text-gray-800 mb-3 lg:mb-4 text-center">DevOps</h3>
+                    <p class="text-sm lg:text-base text-gray-700 mb-4 lg:mb-6 text-center leading-relaxed">Learn Docker, CI/CD basics, and deployment workflows through hands-on tasks</p>
+                    <div class="text-center mb-4">
+                        <div class="text-2xl font-bold text-green-600 mx-auto mb-2">₹599 <p class="text-sm text-gray-600 line-through">₹999</p></div>
+                    </div>
+                    <a href="courses/devops.html" class="apply-btn block w-full bg-gray-600 text-white font-bold py-2 px-4 lg:py-3 lg:px-6 rounded-xl text-center text-sm lg:text-base hover:bg-gray-700 transition duration-300 shadow-lg">Apply Now</a>
+                </div>
+
+                <!-- AWS Cloud Basics -->
+                <div class="domain-card bg-gradient-to-br from-orange-50 to-yellow-100 p-6 lg:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 border-orange-500">
+                    <div class="w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-2xl flex items-center justify-center mb-4 lg:mb-6 shadow-lg mx-auto">
+                        <i class="fas fa-cloud text-orange-600 text-xl lg:text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-bold text-gray-800 mb-3 lg:mb-4 text-center">AWS Cloud Basics</h3>
+                    <p class="text-sm lg:text-base text-gray-700 mb-4 lg:mb-6 text-center leading-relaxed">EC2, S3, VPC, Lambda, RDS, hands-on cloud deployment</p>
+                    <div class="text-center mb-4">
+                        <div class="text-2xl font-bold text-green-600 mx-auto mb-2">₹559 <p class="text-sm text-gray-600 line-through">₹999</p></div>
+                    </div>
+                    <a href="courses/cloud.html" class="apply-btn block w-full bg-orange-600 text-white font-bold py-2 px-4 lg:py-3 lg:px-6 rounded-xl text-center text-sm lg:text-base hover:bg-orange-700 transition duration-300 shadow-lg">Apply Now</a>
+                </div>
+            
+
+
+                <!-- MERN Stack --> 
+                <div class="domain-card bg-gradient-to-br from-green-50 to-emerald-100 p-6 lg:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 border-green-500">
+                    <div class="w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-2xl flex items-center justify-center mb-4 lg:mb-6 shadow-lg mx-auto">
+                        <i class="fas fa-database text-green-600 text-xl lg:text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-bold text-gray-800 mb-3 lg:mb-4 text-center">MERN Stack</h3>
+                    <p class="text-sm lg:text-base text-gray-700 mb-4 lg:mb-6 text-center leading-relaxed">MongoDB, Express, React, Node.js with real projects</p>
+                    <div class="text-center mb-4">
+                        <div class="text-2xl font-bold text-green-600 mx-auto mb-2">₹599 <p class="text-sm text-gray-600 line-through">₹1199</p></div>
+                    </div>
+                    <a href="courses/mern.html" class="apply-btn block w-full bg-green-600 text-white font-bold py-2 px-4 lg:py-3 lg:px-6 rounded-xl text-center text-sm lg:text-base hover:bg-green-700 transition duration-300 shadow-lg">Apply Now</a>
+                </div>
+
+                <!-- Web Development -->
+                <div class="domain-card bg-gradient-to-br from-purple-50 to-violet-100 p-6 lg:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 border-purple-500">
+                    <div class="w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-2xl flex items-center justify-center mb-4 lg:mb-6 shadow-lg mx-auto">
+                        <i class="fas fa-globe text-purple-600 text-xl lg:text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-bold text-gray-800 mb-3 lg:mb-4 text-center">Frontend Web Development</h3>
+                    <p class="text-sm lg:text-base text-gray-700 mb-4 lg:mb-6 text-center leading-relaxed">Modern frontend development with HTML, CSS, JavaScript, responsive design</p>
+                    <div class="text-center mb-4">
+                        <div class="text-2xl font-bold text-green-600 mx-auto mb-2">₹499 <p class="text-sm text-gray-600 line-through">₹899</p></div>
+                    </div>
+                    <a href="courses/web-development.html" class="apply-btn block w-full bg-purple-600 text-white font-bold py-2 px-4 lg:py-3 lg:px-6 rounded-xl text-center text-sm lg:text-base hover:bg-purple-700 transition duration-300 shadow-lg">Apply Now</a>
+                </div>
+
+                <!-- Python Development -->
+                <div class="domain-card bg-gradient-to-br from-orange-50 to-amber-100 p-6 lg:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 border-orange-500">
+                    <div class="w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-2xl flex items-center justify-center mb-4 lg:mb-6 shadow-lg mx-auto">
+                        <i class="fab fa-python text-orange-600 text-xl lg:text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-bold text-gray-800 mb-3 lg:mb-4 text-center">Python Development</h3>
+                    <p class="text-sm lg:text-base text-gray-700 mb-4 lg:mb-6 text-center leading-relaxed">Core Python, scripting, automation, mini projects</p>
+                    <div class="text-center mb-4">
+                        <div class="text-2xl font-bold text-green-600 mx-auto mb-2">₹459 <p class="text-sm text-gray-600 line-through">₹859</p></div>
+                    </div>
+                    <a href="courses/python.html" class="apply-btn block w-full bg-orange-600 text-white font-bold py-3 px-6 rounded-xl text-center hover:bg-orange-700 transition duration-300 shadow-lg mt-6">Apply Now</a>
+                </div>
+
+                <!-- Java Development --> 
+                <div class="domain-card bg-gradient-to-br from-indigo-50 to-purple-100 p-6 lg:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border-l-4 border-indigo-500">
+                    <div class="w-16 h-16 lg:w-20 lg:h-20 bg-white rounded-2xl flex items-center justify-center mb-4 lg:mb-6 shadow-lg mx-auto">
+                        <i class="fab fa-java text-indigo-600 text-xl lg:text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl lg:text-2xl font-bold text-gray-800 mb-3 lg:mb-4 text-center">Java Development</h3>
+                    <p class="text-sm lg:text-base text-gray-700 mb-4 lg:mb-6 text-center leading-relaxed">OOP, backend basics, project-based learning</p>
+                    <div class="text-center mb-4">
+                        <div class="text-2xl font-bold text-green-600 mx-auto mb-2">₹459 <p class="text-sm text-gray-600 line-through">₹859</p></div>
+                    </div>
+                    <a href="courses/java.html" class="apply-btn block w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-xl text-center hover:bg-indigo-700 transition duration-300 shadow-lg mt-6">Apply Now</a>
+                </div>
+            </div> 
+                
+
+            <!-- Why Choose Us Section -->
+            <section class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Why Choose Aurika Infotech</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Discover what makes our internships stand out from the rest</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Project-Based Learning -->
+                        <div class="why-card bg-white p-8 lg:p-10 rounded-3xl shadow-2xl hover:shadow-3xl hover:-translate-y-2 transition-all duration-500 border border-blue-100 cursor-pointer">
+                            <div class="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6 shadow-xl">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Project-Based Learning</h3>
+                            <p class="text-gray-700 text-center leading-relaxed text-lg">Work on real projects instead of just theory</p>
+                        </div>
+
+                        <!-- Structured Learning -->
+                        <div class="why-card bg-white p-8 lg:p-10 rounded-3xl shadow-2xl hover:shadow-3xl hover:-translate-y-2 transition-all duration-500 border border-green-100 cursor-pointer">
+                            <div class="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6 shadow-xl">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Structured Learning</h3>
+                            <p class="text-gray-700 text-center leading-relaxed text-lg">Well-organized content and guided progression</p>
+                        </div>
+
+                        <!-- Real-World Tasks -->
+                        <div class="why-card bg-white p-8 lg:p-10 rounded-3xl shadow-2xl hover:shadow-3xl hover:-translate-y-2 transition-all duration-500 border border-purple-100 cursor-pointer">
+                            <div class="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6 shadow-xl">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Real-World Tasks</h3>
+                            <p class="text-gray-700 text-center leading-relaxed text-lg">Solve practical problems and build real skills</p>
+                        </div>
+
+                        <!-- Certificate on Completion -->
+                        <div class="why-card bg-white p-8 lg:p-10 rounded-3xl shadow-2xl hover:shadow-3xl hover:-translate-y-2 transition-all duration-500 border border-orange-100 cursor-pointer">
+                            <div class="w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-6 shadow-xl">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Certificate on Completion</h3>
+                            <p class="text-gray-700 text-center leading-relaxed text-lg">Receive an internship certificate after successful completion</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final CTA Section -->
+            <section class="py-20 gradient-bg text-white">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Start Your Internship Journey Today</h2>
+                    <p class="text-2xl text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">Gain real skills by working on practical projects</p>
+                    <a href="index.html#contact" class="inline-flex items-center px-10 py-6 bg-white text-blue-600 font-bold rounded-3xl text-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 shadow-xl">
+                        <i class="fas fa-arrow-right mr-3"></i>
+                        Apply Now
+                    </a>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Footer (simplified) -->
+    <footer class="bg-gray-900 text-white py-12 mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Aurika Infotech. All rights reserved. | <a href="index.html" class="hover:text-blue-400">Back to Home</a></p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="fixed top-24 right-6 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50" title="Toggle Dark/Light Mode">
+        <span>🌙</span>
+    </button>
+
+    <script src="theme.js"></script>
+
+</body>
+</html>
