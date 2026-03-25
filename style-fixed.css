@@ -1,0 +1,75 @@
+/* Override Tailwind CDN warning in dev */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Aurika Styles */
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.domain-card {
+  transition: all 0.5s ease;
+}
+
+.domain-card:hover {
+  transform: translateY(-8px);
+}
+
+.auth-input {
+  @apply w-full px-6 py-4 border-2 border-white/30 bg-white/10 rounded-2xl text-lg placeholder-white/70 transition-all duration-300;
+  backdrop-filter: blur(10px);
+}
+
+.auth-input:focus {
+  @apply border-transparent ring-4 ring-blue-500/50 bg-white/20;
+  transform: translateY(-1px);
+}
+
+.why-card, .what-card {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.why-card:hover, .what-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.nav-link {
+  @apply px-3 py-2 rounded-md text-sm font-medium;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  @apply bg-blue-50 text-blue-600;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  @apply bg-gray-900 text-white;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .domain-card {
+    @apply p-4;
+  }
+  
+  h1 {
+    @apply text-3xl;
+  }
+}
+
+/* Loading spinner */
+.fa-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+

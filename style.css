@@ -1,29 +1,143 @@
-  /* Custom CSS */
-        .gradient-bg {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        .testimonial-card {
-            transition: all 0.3s ease;
-        }
-        .testimonial-card:hover {
-            transform: scale(1.03);
-        }
-        .nav-link::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: currentColor;
-            transition: width .3s;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        .contact-input:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(167, 119, 227, 0.5);
-        }
+/* Custom CSS for Aurika Infotech */
+.gradient-bg {
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+}
+
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.contact-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(167, 119, 227, 0.5);
+}
+
+/* Domain card price styling */
+.text-2xl.font-bold.text-green-600 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #059669;
+}
+
+/* Dark theme support */
+.dark {
+  color-scheme: dark;
+}
+
+.dark .bg-gray-50 {
+  background-color: #1f2937;
+}
+
+.dark .bg-white {
+  background-color: #111827;
+}
+
+.dark .text-gray-800 {
+  color: #f9fafb;
+}
+
+.dark .text-gray-700 {
+  color: #d1d5db;
+}
+
+.dark .text-gray-600 {
+  color: #9ca3af;
+}
+
+.dark .domain-card {
+  background: linear-gradient(to bottom right, #1e293b, #334155);
+  border-color: #475569;
+}
+
+.dark .domain-card .bg-white {
+  background-color: #1f2937 !important;
+}
+
+.dark .border-blue-500 { border-color: #60a5fa; }
+.dark .border-green-500 { border-color: #4ade80; }
+.dark .border-purple-500 { border-color: #a78bfa; }
+.dark .border-orange-500 { border-color: #fb923c; }
+.dark .border-indigo-500 { border-color: #818cf8; }
+.dark .border-teal-500 { border-color: #2dd4bf; }
+.dark .border-pink-500 { border-color: #f472b6; }
+.dark .border-gray-600 { border-color: #6b7280; }
+
+.dark .bg-blue-50 { background: linear-gradient(to bottom right, #1e3a8a20, #3730a320); }
+.dark .bg-green-50 { background: linear-gradient(to bottom right, #16653420, #15803d20); }
+.dark .bg-purple-50 { background: linear-gradient(to bottom right, #7c3aed20, #9333ea20); }
+.dark .bg-orange-50 { background: linear-gradient(to bottom right, #c2410c20, #ea580c20); }
+.dark .bg-indigo-50 { background: linear-gradient(to bottom right, #4338ca20, #5843e420); }
+.dark .bg-teal-50 { background: linear-gradient(to bottom right, #0f766e20, #115e5920); }
+.dark .bg-pink-50 { background: linear-gradient(to bottom right, #be185d20, #db277720); }
+.dark .bg-gray-50 { background: linear-gradient(to bottom right, #37415120, #4b556320); }
+
+.dark .bg-gray-900 {
+  background-color: #0f172a;
+}
+
+.dark .border-gray-800 {
+  border-color: #334155;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Dashboard button - Enhanced Visibility */
+#dashboard-btn, #mobile-dashboard-btn {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white !important;
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+#dashboard-btn:hover:not(.disabled), #mobile-dashboard-btn:hover:not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.6);
+}
+
+#dashboard-btn.disabled, #mobile-dashboard-btn.disabled {
+  background: linear-gradient(135deg, #6b7280, #9ca3af);
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.3);
+}
+
+#dashboard-btn.disabled:hover, #mobile-dashboard-btn.disabled:hover {
+  transform: none !important;
+}
+
+/* Auth Pages */
+.auth-tab {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+}
+
+.auth-tab-active {
+  background: white;
+  color: #1e40af;
+}
+
+.auth-input:focus {
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+  border-color: rgba(255,255,255,0.5);
+}
+
