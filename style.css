@@ -143,3 +143,6 @@
 html, body {
   overflow-x: hidden;
 }
+img, .card {
+  max-width: 100%;
+}
